@@ -12,10 +12,10 @@ def main():
     intents = nextcord.Intents.default()
 
     # To enable guild intents:
-    # intents.guilds = True
+    intents.guilds = True
 
     # To enable member intents:
-    # intents.members = True
+    intents.members = True
 
     # Set custom status to "Listening to ?help"
     activity = nextcord.Activity(
@@ -32,6 +32,12 @@ def main():
     for folder in os.listdir("cogs"):
         if os.path.exists(os.path.join("cogs", folder, "cog.py")):
             bot.load_extension(f"cogs.{folder}.cog")
+         
+    @bot.event   
+    async def on_member_join(member):
+        await bot.get_channel(968169897018425354).send(f"{member.name} has joined the server")
+        await member.add_roles(config.UNVERIFIED_ROLE_ID)
+        
 
     @bot.event
     async def on_ready():

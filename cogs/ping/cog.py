@@ -7,7 +7,7 @@ class Ping(commands.Cog, name="Ping"):
         self.bot = bot
 
     @commands.command(name="ping")
-    async def ping(self, ctx: commands.Context):
+    async def verify(self, ctx: commands.Context):
         """A command which simply acknowledges the user's ping.
         Usage:
         ```
