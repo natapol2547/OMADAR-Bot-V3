@@ -36,7 +36,7 @@ def main():
     @bot.event   
     async def on_member_join(member):
         await bot.get_channel(968169897018425354).send(f"{member.name} has joined the server")
-        await member.add_roles(config.UNVERIFIED_ROLE_ID)
+        
         
 
     @bot.event
